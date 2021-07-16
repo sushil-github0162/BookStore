@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BookStore.Models;
+using BookStore.Repository;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,24 +10,31 @@ namespace BookStore.Controllers
 {
     public class BookController : Controller
     {
+        private readonly BookRepository _bookRepository = null;
+        public BookController()
+        {
+            _bookRepository = new BookRepository();
+        }
         public IActionResult Index()
         {
             return View();
         }
 
-        public string GetBookName()
+        public List<BookModel> GetAllBooks()
         {
-            return "Books Index";
+            return _bookRepository.GetAllBooks();
         }
 
-        public string GetBooksById(int id)
+        public BookModel GetBooksById(int id)
         {
-            return "Book" + id;
+            return _bookRepository.GetBookById(id);
         }
 
-        public string SearchBook(string strBookname, string strAuthorName)
+        public List<BookModel> SearchBook(string strBookname, string strAuthorName)
         {
-            return $"Boom with Name= {strBookname} and Author = {strAuthorName}";
+            //return $"Boom with Name= {strBookname} and Author = {strAuthorName}";
+
+            return _bookRepository.SearchBook(strBookname, strAuthorName);
         }
     }
 }
