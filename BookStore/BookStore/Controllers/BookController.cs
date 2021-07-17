@@ -20,6 +20,11 @@ namespace BookStore.Controllers
             return View();
         }
 
+        public ViewResult Index1()
+        {
+            return View();
+        }
+
         public List<BookModel> GetAllBooks()
         {
             return _bookRepository.GetAllBooks();

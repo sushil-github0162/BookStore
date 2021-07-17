@@ -1,0 +1,53 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h1>@DateTime.Now</h1>
+    @{
+        int g = 20;
+        int b = 50;
+        if (b > g)
+        {
+            <h1>Hi I am True</h1>
+        }
+        else
+        {
+            <h1>Hi I am False</h1>
+        }
+    }
+    @if (g < b)
+    {
+        g++;
+        <h1>@g</h1>
+    }
+    else
+    {
+        <h1>@b</h1>
+    }
+
+    @for (int i = 0; i < 20; i++)
+    {
+        <h3>@i</h3>
+    }
+    <h3>
+        Sum = @(4+6)
+    </h3>
+    @{
+        int a = 10;
+        int t = 20;
+        int c = 40;
+        int d = a + t + c;
+    }
+    <h1>@d</h1>
+
+</body>
+</html>
