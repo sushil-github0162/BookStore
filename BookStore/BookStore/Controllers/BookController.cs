@@ -15,7 +15,7 @@ namespace BookStore.Controllers
         {
             _bookRepository = new BookRepository();
         }
-        public IActionResult Index()
+        public ActionResult Index()
         {
             return View();
         }
